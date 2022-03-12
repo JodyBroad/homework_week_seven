@@ -60,10 +60,17 @@ functions.print_employee_data(new_emp_2)
 new_emp_3 = Employee.from_string(employee_str_3)
 functions.print_employee_data(new_emp_3)
 
+# printing current payrise for the whole class
+print("Annual payrise: ", Employee.annual_payrise)
+# printing current payrise for employee_1
+functions.print_payrise(employee_1)
 
-print(Employee.annual_payrise)
-print(employee_1.annual_payrise)
-
+# setting payrise for the whole class
 Employee.set_annual_payrise(1.07)
-print(Employee.annual_payrise)
-print(employee_1.annual_payrise)
+# printing new payrise for the whole class
+print("Annual payrise: ", Employee.annual_payrise)
+# printing new payrise for employee_1
+
+# this isnt applying the payrise properly still need to fix
+functions.print_payrise(employee_1)
+functions.print_payrise(new_emp_2)

@@ -4,7 +4,7 @@ from customer import Customer
 
 
 def print_person_data(person_number):
-    #print('Person name:', person_number.get_person_name())
+    # print('Person name:', person_number.get_person_name())
     print('Person full name:', person_number.fullname())
 
     print("Person records created: ", Person.num_created)
@@ -40,3 +40,9 @@ def print_employee_data(employee_number):
     print('Employee salary: ', employee_number.get_salary())
 
     print("Employee records created: ", Employee.num_of_employees)
+
+def print_payrise(employee_number):
+    print("Your pay next year is: ", employee_number.get_salary())
+
+
+

@@ -17,6 +17,7 @@ class Employee(Person):
 
     def apply_payrise(self):
         self.__salary = int(self.__salary * self.annual_payrise)
+        return self.__salary
 
     # getter - job title
     def get_job_title(self):
