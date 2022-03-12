@@ -28,6 +28,20 @@ class Customer(Person):
     def set_loyalty_points(self, loyalty_points):
         self.__loyalty_points = loyalty_points
 
+    def add_loyalty_points(self, add_loyalty_points):
+        self.__loyalty_points += add_loyalty_points
+        return
+
+    def total_loyalty_points(self):
+        return self.__loyalty_points
+
+    def add_purchase(self, add_purchase):
+        self.__purchase_history += ', ' + add_purchase
+        return
+
+    def total_purchase_history(self):
+        return self.__purchase_history
+
     # getter - marketing
     def get_marketing(self):
         return self.__marketing
@@ -35,4 +49,3 @@ class Customer(Person):
     # setter - marketing
     def set_marketing(self, marketing):
         self.__marketing = marketing
-

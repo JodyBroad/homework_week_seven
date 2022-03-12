@@ -41,3 +41,14 @@ class Employee(Person):
     # setter - salary
     def set_salary(self, salary):
         self.__salary = salary
+
+    # class method for updating payrise for all employees
+    @classmethod
+    def set_annual_payrise(cls, amount):
+        cls.annual_payrise = amount
+
+    # class method to take a standard string of employee data and split it into the right fields
+    @classmethod
+    def from_string(cls, employee_str):
+        first_name, surname, job_title, department, salary = employee_str.split('-')
+        return cls(first_name, surname, job_title, department, salary)
