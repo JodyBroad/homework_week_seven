@@ -16,13 +16,3 @@ class Customer(Person):
 
     def shopping(self):
         print(f'{self.name} has spent £{self.spend_amount} at {self.company_name}. They bought {self.number_items_bought} items')
-
-jasmine = Customer("Jasmine", 35, "Sheffield", 53, 4)
-
-print(f'{Customer.company_name} has had {Customer.count} customers')
-
-jasmine.show()
-jasmine.shopping()
-jasmine.set_age(36)
-jasmine.show()
-jasmine.items(["Shampoo", "bananas"])

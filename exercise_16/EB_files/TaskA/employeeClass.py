@@ -29,11 +29,3 @@ class Employee(Person):
 
     def work(self):
         print(f'{self.name} works in {self.department} at {self.company_name}. Their salary is £{self.salary}')
-
-james = Employee("James", 23, "London", "Finance", 33000, 5367789)
-sarah = Employee("Sarah", 29, "Manchester", "Marketing", 55000, 54345567)
-
-print(f'The total number of employees at {Employee.company_name} is {Employee.count}')
-
-james.work()
-sarah.work()

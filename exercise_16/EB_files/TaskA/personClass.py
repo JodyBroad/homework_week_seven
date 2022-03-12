@@ -18,7 +18,3 @@ class Person:
 
     def show(self):
         print(f"{self.name} is {self.age} and lives in {self.location}")
-
-
-
-
