@@ -1,6 +1,6 @@
-from customerClass import Customer
-from employeeClass import Employee
-from personClass import Person
+from Customer import Customer
+from Employee import Employee
+from Person import Person
 
 jade = Person("Jade", 36, "London")
 jade.show()

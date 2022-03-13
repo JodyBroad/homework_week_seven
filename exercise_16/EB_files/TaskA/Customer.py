@@ -1,4 +1,4 @@
-from personClass import Person
+from Person import Person
 
 class Customer(Person):
     company_name = "CompanyB"
