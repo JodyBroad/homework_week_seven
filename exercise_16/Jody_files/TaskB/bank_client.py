@@ -1,3 +1,5 @@
+import sys
+
 from savings_account import SavingAccount
 from current_account import CurrentAccount
 from account import Account
@@ -56,17 +58,16 @@ except Exception:   # this would cover any other sort of exception
 
 
 try:
-    print("Do you have enough money to withdraw your selected amount?", jody_current.withdraw_check(750))
-    if jody_current.withdraw_check(750):
-        jody_current.withdraw(750)
+    if jody_current.withdraw_check(850) is True:
+        jody_current.withdraw(850)
         # print new balance
         print("Your new balance is: ", jody_current.getbalance())
     else:
-        insufficient_funds = myerrors.InsufficientFundsException
-        print(insufficient_funds)
-        print("Your balance is: ", jody_current.getbalance())
-except myerrors.InsufficientFundsException:
-    print("You have insufficient funds for this transaction, your balance is : ", jody_current.getbalance())
+        print(jody_current.withdraw_check(850))
+except myerrors.InsufficientFundsException as err:
+    print(myerrors.InsufficientFundsException)
+    print("oops: ", myerrors.InsufficientFundsException, file=sys.stderr)
+
 
 # # withdraw more than is in the account, will display error message
 # emily_current.withdraw(1050)
@@ -76,4 +77,4 @@ except myerrors.InsufficientFundsException:
 # withdraw from current account
 # jody_current.withdraw(50)
 # print new balance
-print(jody_current.getbalance())
+# print(jody_current.getbalance())

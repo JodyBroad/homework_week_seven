@@ -1,3 +1,4 @@
+import myerrors
 
 class Account:
     # will keep track of how many have been created
@@ -21,7 +22,8 @@ class Account:
 
     def withdraw_check(self, amount):
         if self.__balance <= amount:
-            return False
+            print("your current balance is: " + str(self.__balance))
+            return myerrors.InsufficientFundsException('-')
         else:
             return True
 
