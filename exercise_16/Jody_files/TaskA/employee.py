@@ -16,7 +16,7 @@ class Employee(Person):
         Employee.num_of_employees += 1
 
     def apply_payrise(self):
-        self.__salary = int(self.__salary * self.annual_payrise)
+        self.__salary = (float(self.__salary) * float(self.annual_payrise))
         return self.__salary
 
     # getter - job title
@@ -43,7 +43,7 @@ class Employee(Person):
     def set_salary(self, salary):
         self.__salary = salary
 
-    # class method for updating payrise for all employees
+    # class method for updating payrise for all employees, working with the class instead of the instance
     @classmethod
     def set_annual_payrise(cls, amount):
         cls.annual_payrise = amount
@@ -53,3 +53,10 @@ class Employee(Person):
     def from_string(cls, employee_str):
         first_name, surname, job_title, department, salary = employee_str.split('-')
         return cls(first_name, surname, job_title, department, salary)
+
+    # static method - use these if you don't access the class or in the instance in your function
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True

@@ -3,6 +3,7 @@ from person import Person
 from employee import Employee
 from customer import Customer
 import functions
+import datetime
 
 # how would we be using this? Possible use cases:
 # 1 - create a new customer record when they make first purchase
@@ -18,14 +19,22 @@ functions.print_person_data(person_1)
 person_2 = Person("Desiree", "Burch")
 functions.print_person_data(person_2)
 
-
-
 # instantiating a customer, printing their data
-customer_1 = Customer("Mike", "Wozniak", "moustache wax", 15, "Email only")
+customer_1 = Customer("Mike", "Wozniak", 15, "Email only", ["moustache wax"])
 functions.print_customer_data(customer_1)
+customer_2 = Customer("Mel", "Giedroyc", 0, "Post and email")
+functions.print_customer_data(customer_2)
 
 # adding on a new purchase
 customer_1.add_purchase("flip-flops")
+# printing total purchase history
+functions.print_total_purchase_history(customer_1)
+# adding another purchase
+customer_1.add_purchase("casserole dish")
+# printing total purchase history
+functions.print_total_purchase_history(customer_1)
+# removing a purchase due to it being returned
+customer_1.remove_purchase("flip-flops")
 # printing total purchase history
 functions.print_total_purchase_history(customer_1)
 
@@ -36,8 +45,6 @@ functions.print_total_loyalty_points(customer_1)
 
 # checking that these updates stick!
 functions.print_customer_data(customer_1)
-
-
 
 # instantiating an employee, printing their data
 employee_1 = Employee("Nish", "Kumar", "Being comically bad at tasks",
@@ -61,16 +68,22 @@ new_emp_3 = Employee.from_string(employee_str_3)
 functions.print_employee_data(new_emp_3)
 
 # printing current payrise for the whole class
-print("Annual payrise: ", Employee.annual_payrise)
+print("Current annual payrise: ", Employee.annual_payrise)
 # printing current payrise for employee_1
 functions.print_payrise(employee_1)
 
 # setting payrise for the whole class
 Employee.set_annual_payrise(1.07)
 # printing new payrise for the whole class
-print("Annual payrise: ", Employee.annual_payrise)
+print("New annual payrise: ", Employee.annual_payrise)
 # printing new payrise for employee_1
 
-# this isnt applying the payrise properly still need to fix
+# applying the payrise and printing the new total
 functions.print_payrise(employee_1)
 functions.print_payrise(new_emp_2)
+
+my_date = datetime.date(2022, 3, 14)
+print(f'Is {my_date} a workday? {Employee.is_workday(my_date)}')
+
+# an easy way to look at inheritance etc. for classes
+# print(help(Employee))

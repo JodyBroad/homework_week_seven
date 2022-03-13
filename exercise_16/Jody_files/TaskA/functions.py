@@ -41,8 +41,6 @@ def print_employee_data(employee_number):
 
     print("Employee records created: ", Employee.num_of_employees)
 
+
 def print_payrise(employee_number):
-    print("Your pay next year is: ", employee_number.get_salary())
-
-
-
+    print(f'{employee_number.get_person_name()} - your pay next year is: £{employee_number.apply_payrise():.2f}')

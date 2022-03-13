@@ -5,9 +5,12 @@ from person import Person
 class Customer(Person):
     num_of_customers = 0
 
-    def __init__(self, first_name, surname, purchase_history, loyalty_points, marketing):
+    def __init__(self, first_name, surname, loyalty_points, marketing, purchase_history=None):
         super().__init__(first_name, surname)
-        self.__purchase_history = purchase_history
+        if purchase_history is None:
+            self.__purchase_history = []
+        else:
+            self.__purchase_history = purchase_history
         self.__loyalty_points = loyalty_points
         self.__marketing = marketing
         Customer.num_of_customers += 1
@@ -36,7 +39,13 @@ class Customer(Person):
         return self.__loyalty_points
 
     def add_purchase(self, add_purchase):
-        self.__purchase_history += ', ' + add_purchase
+        if add_purchase not in self.__purchase_history:
+            self.__purchase_history.append(add_purchase)
+        return
+
+    def remove_purchase(self, remove_purchase):
+        if remove_purchase in self.__purchase_history:
+            self.__purchase_history.remove(remove_purchase)
         return
 
     def total_purchase_history(self):
