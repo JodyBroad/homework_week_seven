@@ -1,4 +1,4 @@
-import myerrors
+from myerrors import InsufficientFundsException
 
 class Account:
     # will keep track of how many have been created
@@ -17,15 +17,19 @@ class Account:
         return
 
     def withdraw(self, amount):
-        self.__balance = self.__balance - amount
-        return
-
-    def withdraw_check(self, amount):
-        if self.__balance <= amount:
-            print("your current balance is: " + str(self.__balance))
-            return myerrors.InsufficientFundsException('-')
+        if amount <= self.__balance:
+            self.__balance -= amount
         else:
-            return True
+            raise InsufficientFundsException('-')
+        return self.__balance
+
+    # def withdraw_check(self, amount):
+    #     if self.__balance <= amount:
+    #         print("your current balance is: " + str(self.__balance))
+    #         return myerrors.InsufficientFundsException('-')
+    #     else:
+    #         return True
+
 
     def getbalance(self):
         return self.__balance

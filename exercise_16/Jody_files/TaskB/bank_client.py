@@ -58,15 +58,13 @@ except Exception:   # this would cover any other sort of exception
 
 
 try:
-    if jody_current.withdraw_check(850) is True:
-        jody_current.withdraw(850)
-        # print new balance
-        print("Your new balance is: ", jody_current.getbalance())
-    else:
-        print(jody_current.withdraw_check(850))
+    jody_current.withdraw(650)
+    # print new balance
+    print("Withdrawal successful, your new balance is: ", jody_current.getbalance())
 except myerrors.InsufficientFundsException as err:
-    print(myerrors.InsufficientFundsException)
-    print("oops: ", myerrors.InsufficientFundsException, file=sys.stderr)
+    #print(myerrors.InsufficientFundsException)
+    print("Withdrawal unsuccessful: ", err, file=sys.stderr)
+    print("Your current balance is: ", jody_current.getbalance())
 
 
 # # withdraw more than is in the account, will display error message
