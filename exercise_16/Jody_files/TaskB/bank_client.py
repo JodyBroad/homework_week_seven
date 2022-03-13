@@ -54,9 +54,7 @@ except FileNotFoundError:
 except Exception:   # this would cover any other sort of exception
     print("Sorry, something went wrong")
 
-# exception handling - create own exception class
-
-
+# exception handling - create own exception class in myerrors.py
 try:
     jody_current.withdraw(650)
     # print new balance
