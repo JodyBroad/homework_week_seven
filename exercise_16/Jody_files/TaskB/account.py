@@ -23,7 +23,7 @@ class Account:
                 return
         except InsufficientFundsException:
             print("You have insufficient funds for this transaction, your balance is : ", self.__balance )
-            print()
+
 
     def getbalance(self):
         return self.__balance
