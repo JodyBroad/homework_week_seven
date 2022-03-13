@@ -16,14 +16,14 @@ class Account:
         return
 
     def withdraw(self, amount):
-        from homework_week_seven.exercise_16.Jody_files.TaskB.myerrors import InsufficientFundsException
-        try:
-            if amount <= self.__balance:
-                self.__balance = self.__balance - amount
-                return
-        except InsufficientFundsException:
-            print("You have insufficient funds for this transaction, your balance is : ", self.__balance )
+        self.__balance = self.__balance - amount
+        return
 
+    def withdraw_check(self, amount):
+        if self.__balance <= amount:
+            return False
+        else:
+            return True
 
     def getbalance(self):
         return self.__balance

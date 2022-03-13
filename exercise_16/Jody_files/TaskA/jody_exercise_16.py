@@ -47,8 +47,7 @@ functions.print_total_loyalty_points(customer_1)
 functions.print_customer_data(customer_1)
 
 # instantiating an employee, printing their data
-employee_1 = Employee("Nish", "Kumar", "Being comically bad at tasks",
-                      "Department of Contestants", 25000)
+employee_1 = Employee("Nish", "Kumar", "Being comically bad at tasks", "Department of Contestants", 25000)
 functions.print_employee_data(employee_1)
 
 # taking in string data with employment info

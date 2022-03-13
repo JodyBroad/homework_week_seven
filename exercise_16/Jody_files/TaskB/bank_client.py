@@ -1,6 +1,7 @@
 from savings_account import SavingAccount
 from current_account import CurrentAccount
 from account import Account
+import myerrors
 
 # create instance of a savings account
 jody_saving = SavingAccount(100, 1.5)
@@ -29,11 +30,6 @@ desc = jody_current.description   # getter gets called
 # print this
 print(desc)
 
-# withdraw from current account
-jody_current.withdraw(50)
-# print new balance
-print(jody_current.getbalance())
-
 # create new instance of a current account
 emily_current = CurrentAccount(800, 0)
 # deposit into current account
@@ -48,8 +44,36 @@ emily_current.description = "Emily's current account"
 # print account description
 print(emily_current.description)
 
+# exception handling - standard exception dealt with inside the code
+try:
+    f = open('account_history.txt')
+except FileNotFoundError:
+    print("Sorry, I can't find that file!")
+except Exception:   # this would cover any other sort of exception
+    print("Sorry, something went wrong")
 
-# withdraw more than is in the account, will display error message
-emily_current.withdraw(1050)
-# print current balance
-print(emily_current.getbalance())
+# exception handling - create own exception class
+
+
+try:
+    print("Do you have enough money to withdraw your selected amount?", jody_current.withdraw_check(750))
+    if jody_current.withdraw_check(750):
+        jody_current.withdraw(750)
+        # print new balance
+        print("Your new balance is: ", jody_current.getbalance())
+    else:
+        insufficient_funds = myerrors.InsufficientFundsException
+        print(insufficient_funds)
+        print("Your balance is: ", jody_current.getbalance())
+except myerrors.InsufficientFundsException:
+    print("You have insufficient funds for this transaction, your balance is : ", jody_current.getbalance())
+
+# # withdraw more than is in the account, will display error message
+# emily_current.withdraw(1050)
+# # print current balance
+# print(emily_current.getbalance())
+
+# withdraw from current account
+# jody_current.withdraw(50)
+# print new balance
+print(jody_current.getbalance())
