@@ -4,9 +4,9 @@
 
 class InsufficientFundsException(Exception):
     # raised when customer tries to withdraw more money than they have in the account
-    def __init__(self, *args):
-        if not all(*args):
-            raise InsufficientFundsException('You have insufficient funds for this withdrawal')
+    # def __init__(self, *args):
+    #     if not all(*args):
+    #         raise InsufficientFundsException('You have insufficient funds for this withdrawal')
     #
     def __str__(self):
         self.message = ("You do not have enough money to make that withdrawal")

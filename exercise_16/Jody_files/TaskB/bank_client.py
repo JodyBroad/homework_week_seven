@@ -2,7 +2,7 @@ import sys
 
 from savings_account import SavingAccount
 from current_account import CurrentAccount
-from account import Account
+# from account import Account
 import myerrors
 
 # create instance of a savings account
@@ -60,7 +60,7 @@ try:
     # print new balance
     print("Withdrawal successful, your new balance is: ", jody_current.getbalance())
 except myerrors.InsufficientFundsException as err:
-    #print(myerrors.InsufficientFundsException)
+    # print(myerrors.InsufficientFundsException)
     print("Withdrawal unsuccessful: ", err, file=sys.stderr)
     print("Your current balance is: ", jody_current.getbalance())
 

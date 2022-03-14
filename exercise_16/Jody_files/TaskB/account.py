@@ -20,7 +20,7 @@ class Account:
         if amount <= self.__balance:
             self.__balance -= amount
         else:
-            raise InsufficientFundsException('-')
+            raise InsufficientFundsException('You have insufficient funds for this withdrawal')
         return self.__balance
 
     # def withdraw_check(self, amount):
